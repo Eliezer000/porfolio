@@ -41,7 +41,7 @@ const Hero = () => {
                 
                 </div>
                 <div>
-                <img className='w-8 mx-auto md:w-8 ' src={Tailwind} alt="html" />
+                <img className='w-8 mx-auto md:w-8 ' src={Tailwind} alt="htm" />
                 
                 </div>
                 <div>
