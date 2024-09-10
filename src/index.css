@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+@layer base {
+    body {
+        @apply font-[Raleway];
+    } 
+    li {
+        @apply px-4;
+        @apply cursor-pointer;
+    }
+}
+
+.content-div {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 15px;
+}
+
+background-Image:hover {
+    opacity: 1;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    transition: 1s
+    
+}
+
+.content-icon:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+.content-pr:hover {
+    color: #ccd6f6;
+}
