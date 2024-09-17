@@ -63,7 +63,7 @@ const Hero = () => {
             </div>
 
             <p className='text-2xl font-bold text-[#dedede] pt-8 pb-2'>Contacto</p>
-            <a href="https://wa.link/l295pv" target='_blank'><p className='text-[#8892b0] content-pr'>Whatsapp</p></a>
+            <a href="https://wa.link/l295pv" target='_blank' rel="noreferrer"><p className='text-[#8892b0] content-pr'>Whatsapp</p></a>
             <p className='text-[#8892b0] '>elidanielp9@gmail.com</p>
             </div>
         </div>
