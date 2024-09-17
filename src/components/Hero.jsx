@@ -54,11 +54,11 @@ const Hero = () => {
             
             <p className='text-2xl font-bold text-[#dedede] pt-8 pb-2'>Proyectos</p>
             <div className='w-60 grid grid-cols-1 gap-2 ' >
-            <a href="https://apptuav1.netlify.app/home" target='_blank'><p className='text-[#8892b0] content-pr'>TuaDrop App </p></a>
-            <a href="https://tua.ar/" target='_blank'><p className='text-[#8892b0] content-pr'>TuaDrop Web</p></a>
-            <a href="https://practica-autos.netlify.app/" target='_blank'><p className='text-[#8892b0] content-pr'>Car Website</p></a>
-            <a href="https://js-practica-auris.netlify.app/" target='_blank'><p className='text-[#8892b0] content-pr'>Commerce JBL</p></a>
-            <a href="https://practica-thewkndtour.netlify.app/" target='_blank'><p className='text-[#8892b0] content-pr'>The Wknd Tour</p></a>
+            <a href="https://apptuav1.netlify.app/home" target='_blank'  rel="noreferrer"><p className='text-[#8892b0] content-pr'>TuaDrop App </p></a>
+            <a href="https://tua.ar/" target='_blank' rel="noreferrer"><p className='text-[#8892b0] content-pr'>TuaDrop Web</p></a>
+            <a href="https://practica-autos.netlify.app/" target='_blank' rel="noreferrer"><p className='text-[#8892b0] content-pr'>Car Website</p></a>
+            <a href="https://js-practica-auris.netlify.app/" target='_blank' rel="noreferrer"><p className='text-[#8892b0] content-pr'>Commerce JBL</p></a>
+            <a href="https://practica-thewkndtour.netlify.app/" target='_blank' rel="noreferrer"><p className='text-[#8892b0] content-pr'>The Wknd Tour</p></a>
             
             </div>
 
