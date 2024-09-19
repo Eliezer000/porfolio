@@ -67,9 +67,9 @@ const ImprovedPortfolio = () => {
   }));
 
   const projects = [
-    { name: 'Voglio Firmat', url: 'https://vogliofirmat.com' },
-    { name: 'TuaDrop Web', url: 'https://tua.ar/' },
-    { name: 'TuaDrop App V1', url: 'https://apptuav1.netlify.app/home' },
+    { name: 'TuaTienda Web', url: 'https://tua.ar/' },
+    { name: 'TuaTienda App V1', url: 'https://apptuav1.netlify.app/home' },
+    { name: 'Voglio Ecommerce', url: 'https://vogliofirmat.com' },
     { name: 'Catalog example', url: 'https://practica-autos.netlify.app/' },
     { name: 'Ecommerce example', url: 'https://js-practica-auris.netlify.app/' },
     { name: 'Blog example', url: 'https://practica-thewkndtour.netlify.app/' }
