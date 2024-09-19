@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Typical from 'react-typical';
-import { Layout, Code, ShoppingCart, PenTool, MessageSquare, Mail, Instagram, Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { Code, ShoppingCart, PenTool, MessageSquare, Mail, Instagram, Search, ChevronDown, ChevronUp } from 'lucide-react';
 
 const ImprovedPortfolio = () => {
   const [language, setLanguage] = useState('es');
