@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Typical from 'react-typical';
-import { Code, ShoppingCart, PenTool, MessageSquare, Mail, Instagram, Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { Code, ShoppingCart, PenTool, MessageSquare, Mail, Instagram, Search, ArrowRight } from 'lucide-react';
 
 const ImprovedPortfolio = () => {
   const [language, setLanguage] = useState('es');
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   const translations = {
     es: {
       developer: "Desarrollador Web",
+      schedule: "Agendar ahora",
       services: "Servicios",
       projects: "Proyectos Destacados",
       contact: "Contacto",
@@ -34,6 +35,7 @@ const ImprovedPortfolio = () => {
     },
     en: {
       developer: "Web Developer",
+      schedule: "Schedule now",
       services: "Services",
       projects: "Featured Projects",
       contact: "Contact",
@@ -93,62 +95,71 @@ const ImprovedPortfolio = () => {
     }
   ];
 
-  const toggleLanguage = (lang) => {
-    setLanguage(lang);
-    setIsExpanded(false);
+  const toggleLanguage = () => {
+    if (!isAnimating) {
+      setLanguage(prev => prev === 'es' ? 'en' : 'es');
+      setIsAnimating(true);
+    }
   };
 
-  const LanguageOption = ({ lang, flag, label }) => (
-    <button
-      onClick={() => toggleLanguage(lang)}
-      className="flex items-center w-full px-3 py-2 hover:bg-[#e1e7ef] transition-colors duration-200"
-    >
-      <img
-        src={flag}
-        alt={`${lang.toUpperCase()} flag`}
-        className="w-8 h-6 mr-2 object-cover"
-      />
-      <span className="text-sm font-medium">{label}</span>
-    </button>
-  );
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 3000); // Ajusta este valor según la duración de tu animación
+
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating, language]);
+
+  const renderName = () => {
+    if (isAnimating) {
+      return (
+        <Typical
+          steps={['E', 100, 'El', 100, 'Eli', 100, 'Elie', 100, 'Eliez', 100, 'Elieze', 100, 'Eliezer', 100, 'Eliezer ', 100, 'Eliezer P', 100, 'Eliezer Pe', 100, 'Eliezer Per', 100, 'Eliezer Pere', 100, 'Eliezer Perez', 100]}
+          loop={1}
+          wrapper="span"
+          onComplete={() => setIsAnimating(false)}
+        />
+      );
+    }
+    return 'Eliezer Perez';
+  };
 
   return (
     <div name='home' className='w-full min-h-screen bg-[#fefefe] text-[#0f172a]'>
       <div className='max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full pt-12'>
         <div className="flex justify-end mb-4">
-          <div className="relative">
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center bg-[#f0f4f8] px-3 py-2 rounded-md shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <img
-                src={language === 'es' ? '/argentina-flag.png' : '/united-states-flag.png'}
-                alt={language === 'es' ? 'Bandera Argentina' : 'USA Flag'}
-                className="w-8 h-6 mr-2 object-cover"
-              />
-              <span className="text-sm font-medium mr-1">{language.toUpperCase()}</span>
-              {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-            </button>
-            {isExpanded && (
-              <div className="absolute right-0 mt-1 w-full bg-white rounded-md shadow-lg overflow-hidden z-10">
-                <LanguageOption
-                  lang={language === 'es' ? 'en' : 'es'}
-                  flag={language === 'es' ? '/united-states-flag.png' : '/argentina-flag.png'}
-                  label={language === 'es' ? 'EN' : 'ES'}
-                />
-              </div>
-            )}
-          </div>
+          <button
+            onClick={toggleLanguage}
+            disabled={isAnimating}
+            className={`flex items-center bg-[#f0f4f8] px-2 py-1 sm:px-3 sm:py-2 rounded-md shadow-sm hover:shadow-md transition-all duration-300 ${isAnimating ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            <img
+              src={language === 'es' ? '/argentina-flag.png' : '/united-states-flag.png'}
+              alt={language === 'es' ? 'Bandera Argentina' : 'USA Flag'}
+              className="w-6 h-4 sm:w-8 sm:h-6 mr-1 sm:mr-2 object-cover"
+            />
+            <span className="text-xs sm:text-sm font-medium">{language.toUpperCase()}</span>
+          </button>
         </div>
         
         <h1 className='text-5xl sm:text-8xl font-bold text-[#192544] mb-4'>
-          <Typical
-            steps={['E', 100, 'El', 100, 'Eli', 100, 'Elie', 100, 'Eliez', 100, 'Elieze', 100, 'Eliezer', 100, 'Eliezer ', 100, 'Eliezer P', 100, 'Eliezer Pe', 100, 'Eliezer Per', 100, 'Eliezer Pere', 100, 'Eliezer Perez', 100]}
-            loop={2}
-            wrapper="span"
-          />
+          {renderName()}
         </h1>
-        <h2 className='text-3xl sm:text-5xl font-bold text-[#0f172a] mb-12'>{t.developer}</h2>
+        <h2 className='text-3xl sm:text-5xl font-bold text-[#0f172a] mb-6'>{t.developer}</h2>
+        <a 
+          href="https://wa.link/l295pv" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="inline-flex items-center text-2xl sm:text-3xl font-normal text-[#0f172a hover:text-[#0f172a] transition-colors duration-300 mb-12 group"
+        >
+          <span className="relative">
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-[#0f172a] transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span className="italic">{t.schedule}</span>
+          </span>
+          <ArrowRight className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-2" />
+        </a>
         
         <section className="mb-16">
           <h3 className='text-2xl sm:text-3xl font-bold text-[#192544] mb-6'>{t.services}</h3>
