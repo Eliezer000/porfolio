@@ -91,7 +91,7 @@ const ImprovedPortfolio = () => {
     {
       name: "Instagram",
       icon: <Instagram className="w-8 h-8" />,
-      url: "https://www.instagram.com/tu_usuario",
+      url: "https://www.instagram.com/eliezerrpz",
     }
   ];
 
