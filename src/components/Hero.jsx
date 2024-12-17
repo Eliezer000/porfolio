@@ -69,6 +69,8 @@ const ImprovedPortfolio = () => {
   }));
 
   const projects = [
+    { name: 'SiCoaching', url: 'https://sicoaching.com.ar/' },
+    { name: 'Softnova', url: 'https://stwebdemo.netlify.app/' },
     { name: 'TuaTienda Web', url: 'https://tua.ar/' },
     { name: 'TuaTienda App V1', url: 'https://apptuav1.netlify.app/home' },
     { name: 'Voglio Ecommerce', url: 'https://vogliofirmat.com' },
